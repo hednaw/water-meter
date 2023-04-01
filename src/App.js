@@ -1,23 +1,14 @@
-import logo from './logo.svg';
+import glass_empty from './glass_empty.svg';
+import glass_full from "./glass_full.svg"
 import './App.css';
+import Glass from './Components/Atoms/Glass/Glass';
+import { useState } from 'react';
 
 function App() {
+  const [glassType, setGlassType] = useState(glass_full)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Glass glassType={glassType}></Glass>
     </div>
   );
 }
