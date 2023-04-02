@@ -1,0 +1,9 @@
+.con {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media only screen and (min-width: 600px) {
+  .con {
+    width: 100%;
+  }
+}
