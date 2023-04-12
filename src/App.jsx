@@ -5,7 +5,10 @@ import { useState } from "react";
 function App() {
   return (
     <div className="App">
-      <GlassesContainer numberOfGlasses={10}></GlassesContainer>
+      <GlassesContainer
+        numberOfGlasses={10}
+        glassSizeProp={200}
+      ></GlassesContainer>
     </div>
   );
 }

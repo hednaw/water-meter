@@ -4,9 +4,9 @@ import "./GlassesContainer.css";
 
 export const GlassContext = createContext(null);
 
-export const GlassesContainer = ({ numberOfGlasses }) => {
+export const GlassesContainer = ({ numberOfGlasses, glassSizeProp }) => {
   const glassesNum = new Array(numberOfGlasses).fill(null).map((_, i) => i);
-  const glassSize = 200;
+  const glassSize = glassSizeProp;
   const [water, setWater] = useState(numberOfGlasses * glassSize);
 
   return (

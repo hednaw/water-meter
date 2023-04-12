@@ -3,17 +3,22 @@ import "./Glass.css";
 import { ReactComponent as GlassEmpty } from "../../../glass_empty.svg";
 import { ReactComponent as GlassFull } from "../../../glass_full.svg";
 import { GlassContext } from "../../Molecules/GlassesContainer";
-const Glass = ({ handler }) => {
+const Glass = ({}) => {
   const [isGlassFull, setIsGlassFull] = useState(true);
   const context = useContext(GlassContext);
-  console.log(context);
 
   const clickHandler = () => {
+    if (context.water < 0) {
+      context.setWater(0);
+    } else if (context.water > context.numberOfGlasses * context.glassSize) {
+      console.error("More water than max");
+    }
+
     setIsGlassFull(!isGlassFull);
     if (isGlassFull) {
       context.setWater(context.water - context.glassSize);
     } else {
-      context.setWater(context.water + 200);
+      context.setWater(context.water + context.glassSize);
     }
   };
 
