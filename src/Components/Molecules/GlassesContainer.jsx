@@ -8,24 +8,13 @@ export const GlassesContainer = ({ numberOfGlasses }) => {
   const glassesNum = new Array(numberOfGlasses).fill(null).map((_, i) => i);
   const glassSize = 200;
   const [water, setWater] = useState(numberOfGlasses * glassSize);
-  const [flag, SetFlag] = useState(true);
-  const handleClick = () => {
-    if (flag) {
-      setWater(water - glassSize);
-      console.log(`Water ` + water);
-      SetFlag(!flag);
-    } else {
-      setWater(water + glassSize);
-      SetFlag(!flag);
-    }
-  };
 
   return (
-    <GlassContext.Provider value={{ water, setWater }}>
+    <GlassContext.Provider value={{ water, setWater, glassSize }}>
       <div className="con">
         <h1>{water}</h1>
         {glassesNum.map((_, i) => (
-          <Glass key={i} handler={handleClick}></Glass>
+          <Glass key={i}></Glass>
         ))}
       </div>
     </GlassContext.Provider>

@@ -11,19 +11,14 @@ const Glass = ({ handler }) => {
   const clickHandler = () => {
     setIsGlassFull(!isGlassFull);
     if (isGlassFull) {
-      context.setWater(context.water - 200);
+      context.setWater(context.water - context.glassSize);
     } else {
       context.setWater(context.water + 200);
     }
   };
 
   return (
-    <div
-      onClick={() => {
-        handler();
-        clickHandler();
-      }}
-    >
+    <div onClick={clickHandler}>
       {isGlassFull ? <GlassFull /> : <GlassEmpty />}
     </div>
   );
