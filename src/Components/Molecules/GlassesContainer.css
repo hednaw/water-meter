@@ -1,9 +1,10 @@
-.con {
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap");
+
+.glasses {
+  justify-content: center;
   display: flex;
-  flex-wrap: wrap;
 }
-@media only screen and (min-width: 600px) {
-  .con {
-    width: 100%;
-  }
+.waterLabel {
+  font-size: 6em;
+  font-family: "Comfortaa";
 }

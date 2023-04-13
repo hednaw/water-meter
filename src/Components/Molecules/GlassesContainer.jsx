@@ -11,11 +11,13 @@ export const GlassesContainer = ({ numberOfGlasses, glassSizeProp }) => {
 
   return (
     <GlassContext.Provider value={{ water, setWater, glassSize }}>
+      <h1 className="waterLabel">{water} ml.</h1>
       <div className="con">
-        <h1>{water}</h1>
-        {glassesNum.map((_, i) => (
-          <Glass key={i}></Glass>
-        ))}
+        <div className="glasses">
+          {glassesNum.map((_, i) => (
+            <Glass key={i} className="glass"></Glass>
+          ))}
+        </div>
       </div>
     </GlassContext.Provider>
   );
