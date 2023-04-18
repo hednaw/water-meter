@@ -16,7 +16,8 @@ const Glass = ({ k }) => {
     );
 
     if (localStorage.getItem(`glass_${k}`) == null) {
-      setIsGlassFull(localStorage.setItem(`glass_` + k, true));
+      setIsGlassFull(true);
+      localStorage.setItem(`glass_` + k, true)
     }
 
     context.setWater( localStorage.getItem("water"))
@@ -25,10 +26,6 @@ const Glass = ({ k }) => {
       localStorage.setItem("water", context.numberOfGlasses * context.glassSize);
     }
 
-
-    if (context.water === context.numberOfGlasses * context.glassSize) {
-      setIsGlassFull(true)
-    }
     
 
   }, []);
