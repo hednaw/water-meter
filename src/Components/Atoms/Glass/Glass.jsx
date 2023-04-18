@@ -7,6 +7,9 @@ const Glass = ({ k }) => {
   const [isGlassFull, setIsGlassFull] = useState(true);
   const context = useContext(GlassContext);
 
+
+
+
   useEffect(() => {
     setIsGlassFull(
       localStorage.getItem(`glass_${k}`) === "true" ? true : false
@@ -16,10 +19,18 @@ const Glass = ({ k }) => {
       localStorage.setItem(`glass_` + k, isGlassFull);
     }
 
+    context.setWater( localStorage.getItem("water"))
 
-  }, [k, isGlassFull, context.water]);
+    if (localStorage.getItem("water") == null) {
+      localStorage.setItem("water", context.numberOfGlasses * context.glassSize);
+    }
+
+    
+
+  }, []);
 
   const clickHandler = () => {
+    console.log(context.numberOfGlasses * context.glassSize)
     if (context.water < 0) {
       context.setWater(0);
     } else if (context.water > context.numberOfGlasses * context.glassSize) {
@@ -34,9 +45,12 @@ const Glass = ({ k }) => {
     localStorage.setItem(`glass_` + k, !isGlassFull);
     if (isGlassFull) {
       context.setWater(context.water - context.glassSize);
+      localStorage.setItem("water", context.water - context.glassSize)
     } else {
       context.setWater(context.water + context.glassSize);
+      localStorage.setItem("water", context.water + context.glassSize)
     }
+    
   };
 
   return (
