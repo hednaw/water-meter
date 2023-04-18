@@ -1,1 +1,1 @@
-#water-meter - a simple react app for tracking water intake
+# water-meter - a simple react app for tracking water intake
