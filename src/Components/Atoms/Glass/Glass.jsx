@@ -25,6 +25,10 @@ const Glass = ({ k }) => {
       localStorage.setItem("water", context.numberOfGlasses * context.glassSize);
     }
 
+
+    if (context.water === context.numberOfGlasses * context.glassSize) {
+      setIsGlassFull(true)
+    }
     
 
   }, []);
