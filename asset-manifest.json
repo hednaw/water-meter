@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/water-meter/static/css/main.8d2a7b82.css",
+    "main.js": "/water-meter/static/js/main.a7741720.js",
+    "static/js/787.50940237.chunk.js": "/water-meter/static/js/787.50940237.chunk.js",
+    "static/media/glass_full.svg": "/water-meter/static/media/glass_full.875b6c7469900604359779e41b61bf40.svg",
+    "index.html": "/water-meter/index.html",
+    "static/media/glass_empty.svg": "/water-meter/static/media/glass_empty.67bdaefa9199dcbc9309f4b5ebe34696.svg",
+    "main.8d2a7b82.css.map": "/water-meter/static/css/main.8d2a7b82.css.map",
+    "main.a7741720.js.map": "/water-meter/static/js/main.a7741720.js.map",
+    "787.50940237.chunk.js.map": "/water-meter/static/js/787.50940237.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d2a7b82.css",
+    "static/js/main.a7741720.js"
+  ]
+}
