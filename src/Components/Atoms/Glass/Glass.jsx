@@ -16,7 +16,7 @@ const Glass = ({ k }) => {
     );
 
     if (localStorage.getItem(`glass_${k}`) == null) {
-      localStorage.setItem(`glass_` + k, true);
+      setIsGlassFull(localStorage.setItem(`glass_` + k, true));
     }
 
     context.setWater( localStorage.getItem("water"))
