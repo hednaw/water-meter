@@ -10,9 +10,11 @@ export const GlassesContainer = ({ numberOfGlasses, glassSizeProp }) => {
   const glassSize = glassSizeProp;
   const [water, setWater] = useState(numberOfGlasses * glassSize);
 
- 
+
   return (
-    <GlassContext.Provider value={{ water, setWater, glassSize, numberOfGlasses }}>
+    <GlassContext.Provider
+      value={{ water, setWater, glassSize, numberOfGlasses }}
+    >
       <h1 className="waterLabel">{water} ml.</h1>
       <div className="con">
         <div className="glasses">

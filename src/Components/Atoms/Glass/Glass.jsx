@@ -6,20 +6,26 @@ import { GlassContext } from "../../Molecules/GlassesContainer";
 const Glass = ({ k }) => {
   const [isGlassFull, setIsGlassFull] = useState(true);
   const context = useContext(GlassContext);
-
+  const dateNow = new Date();
   useEffect(() => {
     setIsGlassFull(
       localStorage.getItem(`glass_${k}`) === "true" ? true : false
     );
 
-    if (localStorage.getItem(`glass_${k}`) == null) {
+    if (localStorage.getItem(`glass_${k}`) == null || localStorage.getItem("lastOpened") !== dateNow.getTime()) {
       setIsGlassFull(true);
       localStorage.setItem(`glass_` + k, true);
+      localStorage.setItem("lastOpened", dateNow.getTime());
     }
+
+    if (localStorage.getItem("lastOpened") === null) {
+      localStorage.setItem("lastOpened", dateNow.getTime());
+    }
+
 
     context.setWater(Number(localStorage.getItem("water")));
     console.log(typeof localStorage.getItem("water"));
-    if (localStorage.getItem("water") == null) {
+    if (localStorage.getItem("water") == null || localStorage.getItem("lastOpened") !== dateNow.getTime()) {
       localStorage.setItem(
         "water",
         context.numberOfGlasses * context.glassSize
