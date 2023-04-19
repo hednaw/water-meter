@@ -1,10 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap");
 
 .glasses {
-  justify-content: center;
   display: flex;
+  justify-content: center;
+  height: 100%;
 }
 .waterLabel {
   font-size: 6em;
   font-family: "Comfortaa";
+}
+@media only screen and (max-width: 600px) {
+  .glasses {
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  .container {
+    text-align: center;
+  }
+  .waterLabel {
+    font-size: 5em;
+  }
 }
