@@ -6,37 +6,35 @@ import { GlassContext } from "../../Molecules/GlassesContainer";
 const Glass = ({ k }) => {
   const [isGlassFull, setIsGlassFull] = useState(true);
   const context = useContext(GlassContext);
-  const dateNow = new Date();
-
-  console.log(dateNow.toDateString());
   useEffect(() => {
+    var now = new Date();
+
+    let myCookie = document.cookie;
+    now.setDate(now.getDate() + 1);
+    now.setHours(0, 0, 0, 0);
+
     setIsGlassFull(
       localStorage.getItem(`glass_${k}`) === "true" ? true : false
     );
 
-    if (
-      localStorage.getItem(`glass_${k}`) == null ||
-      localStorage.getItem("lastOpened") !== dateNow.toDateString()
-    ) {
+    if (localStorage.getItem(`glass_${k}`) == null) {
       setIsGlassFull(true);
       localStorage.setItem(`glass_` + k, true);
-      localStorage.setItem("lastOpened", dateNow.toDateString());
-    }
-
-    if (localStorage.getItem("lastOpened") === null) {
-      localStorage.setItem("lastOpened", dateNow.toDateString());
     }
 
     context.setWater(Number(localStorage.getItem("water")));
     console.log(typeof localStorage.getItem("water"));
-    if (
-      localStorage.getItem("water") == null ||
-      localStorage.getItem("lastOpened") !== dateNow.toDateString()
-    ) {
+    if (localStorage.getItem("water") == null) {
       localStorage.setItem(
         "water",
         context.numberOfGlasses * context.glassSize
       );
+    }
+
+
+    if (myCookie === "") {
+      localStorage.clear();
+      document.cookie = `Opened=yes; expires=${now};`;
     }
   }, []);
 
@@ -53,7 +51,6 @@ const Glass = ({ k }) => {
     if (isGlassFull) {
       context.setWater(Number(context.water) - context.glassSize);
       localStorage.setItem("water", context.water - context.glassSize);
-      console.log(typeof context.water);
     } else {
       context.setWater(context.water + context.glassSize);
       localStorage.setItem("water", context.water + context.glassSize);
